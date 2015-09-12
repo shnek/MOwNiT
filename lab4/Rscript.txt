@@ -1,0 +1,17 @@
+library("Hmisc")
+results = read.csv("data.txt")
+
+avg_results = aggregate(time ~ N:alg, data=results, FUN=mean)
+avg_results$sd = aggregate(time ~ N:alg, data=results, FUN=sd)$time
+Algo1 = avg_results[avg_results$alg==" A1",]
+Algo2 = avg_results[avg_results$alg==" A2",]
+
+
+pdf(file="dataout.pdf", height=9, width=16, bg="white")
+
+plot(Algo1$time ~ Algo1$N, type="o", lty = 1, xlab = "N", ylab = "Computing time in microseconds [us]", col="blue")
+lines(Algo2$time ~ Algo2$N, type="o", lty = 2, col = "red")
+legend("topleft", c("Level1","Level2"),col=c("blue","red"),lty=1:2)
+errbar(Algo1$N, Algo1$time, Algo1$time + Algo1$sd, Algo1$time - Algo1$sd, xlab = "N", ylab = "Computing time in microseconds [us]", type = "o", col = "blue")
+errbar(Algo2$N, Algo2$time, Algo2$time + Algo2$sd, Algo2$time - Algo2$sd, xlab = "N", ylab = "Computing time in microseconds [us]", type = "o", col = "red")
+dev.off()

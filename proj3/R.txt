@@ -1,0 +1,5 @@
+results = read.csv("results.txt")
+
+pdf("data.pdf")
+plot(results$x ~ results$y, type = "l", lty = 1)
+dev.off()

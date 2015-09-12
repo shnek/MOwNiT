@@ -1,0 +1,4 @@
+make:
+	gcc zadanie.c `pkg-config --cflags --libs gsl` -o zad
+	clear
+	./zad 100

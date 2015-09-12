@@ -1,0 +1,17 @@
+library("Hmisc")
+results = read.csv("data.txt")
+
+pdf(file="dataout.pdf", height=9, width=16, bg="white")
+
+errbar(results$X, results$Y, results$Y + results$Err, results$Y - results$Err, xlab = "x", ylab = "y", type = "l", col = "blue")
+lines(results$R ~ results$X, type="l", lty = 1, col = "red")
+legend("topleft", c("Computed","Real"),col=c("blue","red"),lty=1:1)
+dev.off()
+
+svg(file="data.svg", height=9, width=16, bg="white")
+
+plot(results$R ~ results$X, type="l", xlab = "x", ylab = "y", lty = 2, col = "blue", lwd = 1.5)
+lines(results$Y ~ results$X, type="l", lty = 1, col = "red")
+lines(results$F ~ results$X, type="l", lty = 2, col = "black");
+legend("topleft", c("Real","Computed","Function"),col=c("blue","red","black"),lty=2:1)
+dev.off()

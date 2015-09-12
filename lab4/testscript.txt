@@ -1,0 +1,16 @@
+
+results = read.csv("data2.txt")
+
+results$speed = results$n / results$time
+
+avg_results = aggregate( cbind(time,speed) ~ n:alg, data=results, FUN=mean) 
+
+y_range = range(0,avg_results$time)
+
+
+pdf(file="data2.pdf", height=4, width=4, bg="white")
+
+plot(avg_results[avg_results$alg=="t1",]$time, type="o", lty = 1, ylim = y_range, xlab = "n", ylab = "Computing time in seconds", col="blue")
+lines(avg_results[avg_results$alg=="t2",]$time, type="o", lty = 2, col = "red")
+legend("topleft", c("t1","t2"),col=c("blue","red"),lty=1:2)
+dev.off()

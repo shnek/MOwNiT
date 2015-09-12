@@ -1,0 +1,15 @@
+plot  "wartosci.txt" w points pointsize 3 , "inter.txt"
+
+
+
+my plot (every interpolation on 1 plot):
+plot "wartosci.txt" w points pointsize 3, "inter_polynomial.txt" w points pointsize 1 pointtype 6, "inter_linear.txt" w points pointsize 1 pointtype 6, "inter_akima.txt" w points pointsize 1 pointtype 6, "inter_akima_periodic.txt" w points pointsize 1 pointtype 6, "inter_cspline.txt" w points pointsize 1 pointtype 6, "inter_cspline_periodic.txt" w points pointsize 1 pointtype 6
+
+
+zadanie6:
+plot "zad6wartosci.txt" w points pointsize 3, "zad6polynomial.txt", sqrt(x)
+plot "zad6wartosci.txt" w points pointsize 3, "zad6spline.txt", sqrt(x)
+
+
+
+

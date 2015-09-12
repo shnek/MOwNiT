@@ -1,0 +1,8 @@
+nie dziala bisekcja - gdy f(x) na krancach jest tego samego znaku
+
+nie dziala pochodna - gdy f'(x) = 0
+nie dziala pochodna - zapetlenie fajne !  x^3 - 20x, punkt p = 2
+
+Temat projektu Atraktor Duffinga
+
+wyrysowac - pelny wykres badz rysowanie "na zywo!"
